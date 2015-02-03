@@ -9,41 +9,41 @@
     <link rel="import" href="protein-attributes">
     <title>Gene Attributes</title>
   </head>
+
   <body>
+    Example:
 
-  Example:
+    <polymer-element name="demo-element" attributes="tax_id_gene_id">
+      <template>
+        <style>
+          .core-selected {
+            background: #eee;
+          }
+        </style>
 
-  <polymer-element name="demo-element" attributes="tax_id_gene_id">
-    <template>
-      <style>
-        .core-selected {
-          background: #eee;
-        }
-      </style>
-      <core-selector valueattr="label" selected="{{tax_id_gene_id}}">
-        <div label="1016998:SPAB_00296">1016998:SPAB_00296</div>
-        <div label="1016998:SPAB_04108">1016998:SPAB_04108</div>
-        <div label="1016998:SPAB_04808">1016998:SPAB_04808</div>
-        <div label="1016998:SPAB_04597">1016998:SPAB_04597</div>
-      </core-selector>
+        <core-selector valueattr="label" selected="{{tax_id_gene_id}}">
+          <div label="1016998:SPAB_00296">1016998:SPAB_00296</div>
+          <div label="1016998:SPAB_04108">1016998:SPAB_04108</div>
+          <div label="1016998:SPAB_04808">1016998:SPAB_04808</div>
+          <div label="1016998:SPAB_04597">1016998:SPAB_04597</div>
+        </core-selector>
 
-      <togostanza-gene-attributes gene_id="{{gene_id}}"></togostanza-gene-attributes>
-      <togostanza-protein-attributes tax_id="{{tax_id}}" gene_id="{{gene_id}}"></togostanza-protein-attributes>
-    </template>
+        <togostanza-gene-attributes gene_id="{{gene_id}}"></togostanza-gene-attributes>
+        <togostanza-protein-attributes tax_id="{{tax_id}}" gene_id="{{gene_id}}"></togostanza-protein-attributes>
+      </template>
 
-    <script>
-      Polymer('demo-element', {
-        tax_id_gene_idChanged: function(oldValue, newValue) {
-          var ids = newValue.split(':');
+      <script>
+        Polymer('demo-element', {
+          tax_id_gene_idChanged: function(oldValue, newValue) {
+            var ids = newValue.split(':');
 
-          this.tax_id  = ids[0];
-          this.gene_id = ids[1];
-        }
-      });
-    </script>
-  </polymer-element>
+            this.tax_id  = ids[0];
+            this.gene_id = ids[1];
+          }
+        });
+      </script>
+    </polymer-element>
 
-  <demo-element tax_id_gene_id="1016998:SPAB_00296"></demo-element>
-
+    <demo-element tax_id_gene_id="1016998:SPAB_00296"></demo-element>
   </body>
 </html>
