@@ -1,5 +1,5 @@
-Stanza(function(params) {
-  this.query({
+Stanza(function(stanza, params) {
+  stanza.query({
     endpoint: "http://togogenome.org/sparql",
     template: "stanza.rq",
     parameters: params
@@ -19,11 +19,11 @@ Stanza(function(params) {
       row.sequence_processing = row.precursor == '1' ? 'precursor' : null;
     });
 
-    this.render({
+    stanza.render({
       template: "stanza.html",
       parameters: {
         attributes: rows
       }
     });
-  }.bind(this));
+  });
 });
