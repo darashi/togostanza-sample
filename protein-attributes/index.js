@@ -3,11 +3,14 @@ Stanza(function(stanza, params) {
     endpoint: "http://togogenome.org/sparql",
     template: "stanza.rq",
     parameters: params
-  }).done(function(rows) {
-    rows.forEach(function(row) {
-      row.sequence_length = row.sequence ? row.sequence.length : null;
+  }).done(function(data) {
+    var rows = data.results.bindings;
+    console.log(rows);
 
-      switch (row.fragment) {
+    rows.forEach(function(row) {
+      row.sequence_length = row.sequence ? row.sequence.value.length : null;
+
+      switch (row.fragment && row.fragment.value) {
         case 'single':
         case 'multiple':
           row.sequence_status = 'Fragment';
@@ -16,7 +19,7 @@ Stanza(function(stanza, params) {
           row.sequence_status = 'Complete';
       }
 
-      row.sequence_processing = row.precursor == '1' ? 'precursor' : null;
+      row.sequence_processing = (row.precursor && row.precursor.value) == '1' ? 'precursor' : null;
     });
 
     stanza.render({

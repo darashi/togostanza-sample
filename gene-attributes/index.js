@@ -3,10 +3,12 @@ Stanza(function(stanza, params) {
     endpoint: "http://togogenome.org/sparql",
     template: "stanza.rq",
     parameters: params
-  }).then(function(rows) {
+  }).then(function(data) {
+    var rows = data.results.bindings;
+
     rows.forEach(function(row) {
-      row.tax_link = "http://identifiers.org/taxonomy/" + row.taxid.split(":").slice(-1)[0];
-      row.refseq_link = "http://identifiers.org/refseq/" + row.refseq_label.split(":").slice(-1)[0];
+      row.tax_link    = "http://identifiers.org/taxonomy/" + row.taxid.value.split(":").slice(-1)[0];
+      row.refseq_link = "http://identifiers.org/refseq/"   + row.refseq_label.value.split(":").slice(-1)[0];
     });
 
     stanza.render({
