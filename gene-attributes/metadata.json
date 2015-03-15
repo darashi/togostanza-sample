@@ -5,7 +5,7 @@
   "@id": "gene-attributes",
   "stanza:label": "Hello Example",
   "stanza:definition": "Greeting.",
-  "stanza:parameters": [
+  "stanza:parameter": [
     {
       "stanza:key": "gene_id",
       "stanza:example": "slr1311",
@@ -14,13 +14,15 @@
     }
   ],
   "stanza:usage": "<togostanza-gene-attributes gene_id=\"slr1311\"></togostanza-gene-attributes>",
-  "stanza:type": "stanza:Stanza",
+  "stanza:type": "Stanza",
   "stanza:context": "",
   "stanza:display": "",
   "stanza:provider": "provider of this stanza",
   "stanza:license": "",
   "stanza:author": "author name",
   "stanza:address": "name@example.org",
+  "stanza:contributor": [
+  ],
   "stanza:created": "2015-03-02",
   "stanza:updated": "2015-03-02"
 }

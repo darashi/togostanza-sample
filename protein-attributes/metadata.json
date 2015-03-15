@@ -5,10 +5,10 @@
   "@id": "protein-attributes",
   "stanza:label": "Hello Example",
   "stanza:definition": "Greeting.",
-  "stanza:parameters": [
+  "stanza:parameter": [
     {
       "stanza:key": "tax_id",
-      "stanza:example": "1016998",
+      "stanza:example": 106998,
       "stanza:description": "",
       "stanza:required": true
     },
@@ -20,13 +20,15 @@
     }
   ],
   "stanza:usage": "<togostanza-protein-attributes tax_id=\"1016998\" gene_id=\"SPAB_00296\"></togostanza-protein-attributes>",
-  "stanza:type": "stanza:Stanza",
+  "stanza:type": "Stanza",
   "stanza:context": "",
   "stanza:display": "",
   "stanza:provider": "provider of this stanza",
   "stanza:license": "",
   "stanza:author": "author name",
   "stanza:address": "name@example.org",
+  "stanza:contributor": [
+  ],
   "stanza:created": "2015-03-02",
   "stanza:updated": "2015-03-02"
 }
